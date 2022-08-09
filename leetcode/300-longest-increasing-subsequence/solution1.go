@@ -1,15 +1,5 @@
 package main
 
-import "fmt"
-
-const shouldPrint = false
-
-func print(str string) {
-	if shouldPrint {
-		fmt.Println(str)
-	}
-}
-
 func solution1(nums []int) int {
 	max_lens := make([]int, len(nums))
 	smallest_number := make([]int, len(nums))

@@ -24,3 +24,11 @@ func TestSolution1(t *testing.T) {
 		assert.Equal(test.out, solution1(test.in), fmt.Sprintf("in: %v\n", test.in))
 	}
 }
+
+func TestSolution2(t *testing.T) {
+	assert := assert.New(t)
+
+	for _, test := range tests {
+		assert.Equal(test.out, solution2(test.in), fmt.Sprintf("in: %v\n", test.in))
+	}
+}
