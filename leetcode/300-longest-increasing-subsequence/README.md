@@ -9,3 +9,8 @@ Time: O(n^2)
 
 Space: O(n)
 Time: O(n log(n))
+
+## Solution 3 - Binary Search and Get Longest Increasing Subsequence Path
+
+Space: O(n)
+Time: O(n log(n))

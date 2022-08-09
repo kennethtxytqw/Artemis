@@ -32,3 +32,13 @@ func TestSolution2(t *testing.T) {
 		assert.Equal(test.out, solution2(test.in), fmt.Sprintf("in: %v\n", test.in))
 	}
 }
+
+func TestSolution3(t *testing.T) {
+	assert := assert.New(t)
+
+	for _, test := range tests {
+		length, ans := solution3(test.in)
+		fmt.Printf("ans: %v\n", ans)
+		assert.Equal(test.out, length, fmt.Sprintf("in: %v\n", test.in))
+	}
+}
