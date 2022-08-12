@@ -28,8 +28,8 @@ func solution2(destination []int, k int) string {
 			src[0]++
 		} else {
 			ans += "V"
-			src[1]++
 			k -= memo[src[0]+1][src[1]]
+			src[1]++
 		}
 		if src[0] == h || src[1] == v {
 			break

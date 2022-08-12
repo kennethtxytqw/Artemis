@@ -14,6 +14,7 @@ var tests = []struct {
 }{
 	{[]int{2, 3}, 3, "HHVVH"},
 	{[]int{2, 3}, 2, "HHVHV"},
+	{[]int{2, 2}, 4, "VHHV"},
 	{[]int{15, 15}, 155117520, "VVVVVVVVVVVVVVVHHHHHHHHHHHHHHH"},
 }
 
@@ -21,7 +22,7 @@ func TestSolution1(t *testing.T) {
 	assert := assert.New(t)
 
 	for i, test := range tests {
-		if i >= 2 {
+		if i >= 3 {
 			return
 		}
 		assert.Equal(test.out, solution1(test.coordinate, test.k), fmt.Sprintf("in: %v %d", test.coordinate, test.k))
