@@ -3,7 +3,7 @@ package main
 func isValidSudoku(board [][]byte) bool {
 	for i := 0; i < len(board); i++ {
 		for j := 0; j < len(board[i]); j++ {
-			if !isValid(i, j, board) {
+			if !isLegal(board[i][j], i, j, board) {
 				return false
 			}
 		}
@@ -11,21 +11,13 @@ func isValidSudoku(board [][]byte) bool {
 	return true
 }
 
-func isValid(i int, j int, board [][]byte) bool {
-	cellValue := board[i][j]
-	if cellValue == '.' {
-		return true
-	}
-	for x := 0; x < 3; x++ {
-		for y := 0; y < 3; y++ {
-			if board[x+i/3*3][y+j/3*3] == cellValue && !(y+j/3*3 == j && x+i/3*3 == i) {
-				return false
-			}
-		}
-	}
-
-	for x := 0; x < 9; x++ {
-		if (i != x && board[x][j] == cellValue) || (j != x && board[i][x] == cellValue) {
+func isLegal(v byte, x int, y int, board [][]byte) bool {
+	subbox_x := x / 3 * 3
+	subbox_y := y / 3 * 3
+	for i := 0; i < len(board); i++ {
+		if board[x][i] == v ||
+			board[i][y] == v ||
+			board[subbox_x+i%3][subbox_y+i/3] == v {
 			return false
 		}
 	}
