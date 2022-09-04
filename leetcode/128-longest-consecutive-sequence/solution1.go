@@ -9,12 +9,10 @@ func longestConsecutive(nums []int) int {
 
 	longestChainLength := 0
 
-	for num, partOfLongerChain := range setOfNumbers {
-		if partOfLongerChain {
+	for num, _ := range setOfNumbers {
+		if _, ok := setOfNumbers[num-1]; ok {
 			continue
 		}
-
-		setOfNumbers[num] = true
 
 		chainLength := 1
 		for {
